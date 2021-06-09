@@ -50,8 +50,9 @@ function createSession() {
     token = onBoardingToken
   })
 }
-function detectFrontID() {
+async function detectFrontID() {
   // call detect from our SDK to auto detect the image
+  await onBoarding.warmup();
   onBoarding.detect({
     canvas,
     type: onBoarding.frontType,
